@@ -1,0 +1,109 @@
+Session 1 → General tutoring questions
+Certainly! The **water cycle** (or hydrologic cycle) describes how water moves continuously through Earth's atmosphere, land, and oceans. Here’s a step-by-step breakdown:
+
+### 1. **Evaporation**  
+   - The sun heats water in oceans, lakes, and rivers, turning it into **water vapor** (a gas).  
+   - Plants also release water vapor through **transpiration** (from their leaves).
+
+### 2. **Condensation**  
+   - Water vapor rises, cools, and condenses into tiny droplets, forming **clouds**.
+
+### 3. **Precipitation**  
+   - When cloud droplets combine and grow heavy, they fall as **rain, snow, sleet, or hail**.
+
+### 4. **Collection (Runoff & Infiltration)**  
+   - Precipitation collects in bodies of water (**runoff**) or soaks into the ground (**infiltration**), replenishing groundwater and aquifers.  
+   - The cycle repeats as water evaporates again.
+
+### Key Processes:  
+   - **Sublimation**: Ice/snow turns directly into vapor (e.g., glaciers).  
+   - **Deposition**: Water vapor turns directly into ice (e.g., frost).  
+
+The water cycle is crucial for distributing freshwater and maintaining Earth's climate. Let me know if you'd like more details!
+The **Pythagorean Theorem** is a fundamental principle in geometry that applies to right-angled triangles. It states:
+
+> **In a right triangle, the square of the hypotenuse (the side opposite the right angle) is equal to the sum of the squares of the other two sides (legs).**
+
+### Formula:
+\[
+\boxed{a^2 + b^2 = c^2}
+\]
+- **\(c\)** = hypotenuse (longest side).  
+- **\(a\)** and **\(b\)** = the other two legs.  
+
+### Example:
+If a right triangle has legs of lengths 3 and 4:  
+\[
+3^2 + 4^2 = c^2 \implies 9 + 16 = 25 \implies c = \sqrt{25} = 5
+\]  
+The hypotenuse is **5**.
+
+### Key Points:
+1. **Only works for right triangles**.  
+2. Used to find missing side lengths, check if a triangle is right-angled, or solve real-world problems (e.g., distance, construction).  
+
+Would you like a visual or another example?
+Session 2 → General tutoring questions
+Photosynthesis is the process by which plants, algae, and some bacteria convert sunlight, carbon dioxide, and water into glucose (food) and oxygen. Here’s a simplified breakdown:
+
+### **1. Light Absorption**  
+- Occurs in the **chloroplasts** (mainly in plant leaves).  
+- Pigment **chlorophyll** absorbs sunlight (primarily blue and red light, reflecting green).  
+
+### **2. Light-Dependent Reactions** (in **thylakoid membranes**)  
+- Sunlight energy splits water (**H₂O**) into **oxygen (O₂)**, protons (H⁺), and electrons.  
+- Oxygen is released as a byproduct.  
+- Energy carriers **ATP** and **NADPH** are produced.  
+
+### **3. Calvin Cycle (Light-Independent Reactions)** (in **stroma**)  
+- Uses **ATP** and **NADPH** from the light reactions.  
+- **CO₂** from the air is fixed into glucose (C₆H₁₂O₆) via a series of enzyme-driven steps.  
+
+### **Summary Equation**:  
+\[ 6\,CO_2 + 6\,H_2O + \text{light energy} \rightarrow C_6H_{12}O_6 + 6\,O_2 \]  
+
+### **Key Points**:  
+- **Sunlight → Chemical Energy** (stored in glucose).  
+- **Oxygen** is a byproduct (essential for most life).  
+- Occurs in **autotrophs** (organisms that make their own food).  
+
+Would you like a deeper explanation of any step?
+Newton's **three laws of motion** form the foundation of classical mechanics, explaining how objects move and interact with forces. Here’s a clear breakdown:  
+
+---
+
+### **1. Newton’s First Law (Law of Inertia)**  
+- **Statement**: *An object at rest stays at rest, and an object in motion stays in motion at constant speed and in a straight line **unless acted upon by an unbalanced force.***  
+- **Key Idea**: **Inertia** (resistance to change in motion) depends on mass.  
+- **Example**: A book on a table won’t move unless pushed. A car stops suddenly, but passengers lurch forward (inertia resists the change).  
+
+---
+
+### **2. Newton’s Second Law (F = ma)**  
+- **Statement**: *The acceleration (**a**) of an object depends on the **net force (F)** acting on it and its **mass (m)**:*  
+  \[
+  F = ma
+  \]  
+- **Key Idea**:  
+  - More force → more acceleration.  
+  - More mass → less acceleration (for the same force).  
+- **Example**: Pushing a shopping cart lightly = slow acceleration; pushing harder = faster acceleration.  
+
+---
+
+### **3. Newton’s Third Law (Action-Reaction)**  
+- **Statement**: *For every action, there is an **equal and opposite reaction**.*  
+- **Key Idea**: Forces always occur in **pairs** between two interacting objects.  
+- **Example**:  
+  - Walking: Your foot pushes the ground backward (action), and the ground pushes you forward (reaction).  
+  - Rocket launch: Exhaust gas pushes down (action), and the rocket pushes upward (reaction).  
+
+---
+
+### **Why They Matter**:  
+- **First Law**: Explains why seatbelts are needed (inertia keeps you moving during a crash).  
+- **Second Law**: Used to calculate forces in engineering (e.g., car safety designs).  
+- **Third Law**: Governs collisions, propulsion, and even everyday movements.  
+
+Would you like real-life applications or equations to practice?
+Execution time limit exceeded
