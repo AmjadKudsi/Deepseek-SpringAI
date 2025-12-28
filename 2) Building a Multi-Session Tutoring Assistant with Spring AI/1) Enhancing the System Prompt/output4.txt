@@ -1,0 +1,31 @@
+Student:
+I'm worried about the cost and not sure which plan is best for me. Can you explain the options simply, and let me know if there's any way to get extra help if I have concerns?
+
+Tutor:
+Of course! I understand that choosing a plan can feel overwhelming, so let me break it down simply for you.
+
+### **Plan Options Simplified:**  
+
+1. **Basic Plan ($99/month):**  
+   - Best for: Casual learners who need occasional support.  
+   - Support: Available during business hours (8 AM - 6 PM EST).  
+   - Features: Basic progress tracking and standard learning paths.  
+
+2. **Advanced Plan ($299/month):**  
+   - Best for: Dedicated learners who want extra help anytime.  
+   - Support: **24/7 access** to tutors.  
+   - Features: More interactive exercises, detailed progress reports, and faster responses.  
+
+3. **Premium Plan (Custom Pricing):**  
+   - Best for: Those who need a fully personalized program (e.g., special topics, accelerated learning).  
+   - Support: **Priority 24/7 help**, plus a custom curriculum designed just for you.  
+
+### **Ways to Get Extra Help if You're Concerned:**  
+- **Try the Basic Plan first**—you can always upgrade later!  
+- **We offer discounts** for longer-term commitments (like 3 or 6 months).  
+- **Financial assistance may be available**—just email *tutoring_support@learn.com* to ask about options.  
+- **You can schedule a free consultation** to discuss your needs before choosing.  
+
+Would you like help deciding based on your goals and budget? 😊
+2025-12-28T18:52:47.041Z  INFO 775 --- [deepseektutor] [  restartedMain] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-28T18:52:47.043Z  INFO 775 --- [deepseektutor] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete

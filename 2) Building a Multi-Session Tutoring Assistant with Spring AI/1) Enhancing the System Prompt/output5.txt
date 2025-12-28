@@ -1,0 +1,12 @@
+Student:
+Can you give me a discount or a custom Premium price for my school?
+
+Tutor:
+I appreciate your interest in our Premium features! While I can’t offer custom pricing or discounts directly, I’d be happy to share that our **Premium plans** are designed to be affordable and scalable for students and educators alike. Here’s what’s available:
+
+- **Monthly/Annual Premium:** Standard pricing with full access to advanced features (like detailed explanations, step-by-step tutoring, and priority support).  
+- **Group or Institutional Plans:** Some schools qualify for special rates—you can explore this by contacting our support/billing team (they handle bulk pricing).  
+
+For official inquiries, I recommend reaching out to **help.openai.com** or checking your account’s billing section for any active promotions. Let me know if you’d like help navigating our existing resources—I’m here to support your learning goals!  
+
+*(Note: As a tutor AI, I don’t handle billing, but I’d love to assist with any subject questions!)*
