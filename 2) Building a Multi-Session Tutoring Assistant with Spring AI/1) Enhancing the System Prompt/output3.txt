@@ -1,0 +1,33 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.5)
+
+2025-12-28T01:10:00.600Z  INFO 949 --- [deepseektutor] [  restartedMain] c.c.d.DeepSeekTutorApplication           : Starting DeepSeekTutorApplication using Java 23.0.2 with PID 949 (/usercode/FILESYSTEM/deepseektutor/build/classes/java/main started by runner in /usercode/FILESYSTEM/deepseektutor)
+2025-12-28T01:10:00.602Z  INFO 949 --- [deepseektutor] [  restartedMain] c.c.d.DeepSeekTutorApplication           : No active profile set, falling back to 1 default profile: "default"
+2025-12-28T01:10:00.672Z  INFO 949 --- [deepseektutor] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2025-12-28T01:10:00.672Z  INFO 949 --- [deepseektutor] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2025-12-28T01:10:01.469Z  INFO 949 --- [deepseektutor] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-12-28T01:10:01.481Z  INFO 949 --- [deepseektutor] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-12-28T01:10:01.482Z  INFO 949 --- [deepseektutor] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2025-12-28T01:10:01.509Z  INFO 949 --- [deepseektutor] [  restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-12-28T01:10:01.510Z  INFO 949 --- [deepseektutor] [  restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 837 ms
+2025-12-28T01:10:02.096Z  INFO 949 --- [deepseektutor] [  restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2025-12-28T01:10:02.117Z  INFO 949 --- [deepseektutor] [  restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2025-12-28T01:10:02.124Z  INFO 949 --- [deepseektutor] [  restartedMain] c.c.d.DeepSeekTutorApplication           : Started DeepSeekTutorApplication in 1.823 seconds (process running for 2.114)
+Student:
+What are the support hours for the Basic Plan and what is the email to contact?
+
+Tutor:
+For the **Basic Plan**, the support hours are **8 AM to 6 PM EST**.  
+
+You can reach out via email at: **tutoring_support@learn.com**  
+
+Let me know if you'd like help with anything else! 😊
+2025-12-28T01:10:04.909Z  INFO 949 --- [deepseektutor] [  restartedMain] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2025-12-28T01:10:04.911Z  INFO 949 --- [deepseektutor] [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
