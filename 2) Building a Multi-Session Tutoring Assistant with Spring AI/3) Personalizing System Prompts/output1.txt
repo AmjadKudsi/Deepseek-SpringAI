@@ -1,0 +1,91 @@
+Assistant: Absolutely! I'd love to help you understand the **Pythagorean Theorem**. Let's break it down step by step.
+
+---
+
+### **What is the Pythagorean Theorem?**
+The Pythagorean Theorem is a fundamental principle in geometry that relates the sides of a **right-angled triangle**. 
+
+> **Theorem Statement:**  
+> *In a right triangle, the square of the hypotenuse (the side opposite the right angle) is equal to the sum of the squares of the other two sides (called legs).*  
+
+Mathematically, it's written as:  
+\[
+a^2 + b^2 = c^2
+\]  
+where:
+- \( a \) and \( b \) are the **legs** of the triangle.
+- \( c \) is the **hypotenuse** (the longest side).
+
+---
+
+### **Why Does It Work?**
+The theorem works because of the relationship between the areas of squares built on each side of the triangle.
+
+1. Imagine a right triangle with legs \( a \) and \( b \).
+2. If you draw squares on each side, the area of the squares will be:
+   - \( a^2 \) (on side \( a \))
+   - \( b^2 \) (on side \( b \))
+   - \( c^2 \) (on the hypotenuse \( c \))
+3. The theorem says that the area of the largest square (\( c^2 \)) equals the sum of the areas of the two smaller squares (\( a^2 + b^2 \)).
+
+---
+
+### **Example Problem**
+Let’s say we have a right triangle where:
+- Leg \( a = 3 \) units
+- Leg \( b = 4 \) units  
+We want to find the hypotenuse \( c \).
+
+**Step 1:** Plug the values into the formula:  
+\[
+3^2 + 4^2 = c^2
+\]
+
+**Step 2:** Calculate the squares:  
+\[
+9 + 16 = c^2
+\]
+
+**Step 3:** Add them together:  
+\[
+25 = c^2
+\]
+
+**Step 4:** Take the square root of both sides to find \( c \):  
+\[
+c = \sqrt{25} = 5
+\]
+
+**Answer:** The hypotenuse is **5 units**.
+
+---
+
+### **When Is It Used?**
+The Pythagorean Theorem is used whenever you have a right triangle and know two sides but need the third. Examples include:
+- Finding distances between points in coordinate geometry.
+- Checking if a triangle is right-angled.
+- Solving real-world problems like ladder lengths or navigation.
+
+---
+
+### **Try It Yourself!**
+Here’s a quick problem for you to solve:  
+
+*A right triangle has legs of 5 and 12. What is the length of the hypotenuse?*  
+
+**Answer:**  
+\[
+5^2 + 12^2 = c^2 \\
+25 + 144 = c^2 \\
+169 = c^2 \\
+c = \sqrt{169} = \boxed{13}
+\]
+
+---
+
+### **Key Takeaways**
+1. **Only works for right triangles** (must have a 90° angle).
+2. The hypotenuse is **always the longest side**.
+3. Useful for solving missing lengths in geometry and applied problems.
+
+Would you like to try another example or see a visual proof? 😊
