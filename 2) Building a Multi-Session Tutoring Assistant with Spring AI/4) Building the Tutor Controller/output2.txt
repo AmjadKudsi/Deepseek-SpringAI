@@ -1,0 +1,27 @@
+Waiting for DeepSeekTutor app to start...
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.5)
+
+2026-02-25T02:54:48.781Z  INFO 886 --- [deepseektutor] [           main] c.c.d.DeepSeekTutorApplication           : Starting DeepSeekTutorApplication v0.0.1-SNAPSHOT using Java 25 with PID 886 (/bootstrap-apps/java-springai/build/libs/deepseektutor-0.0.1-SNAPSHOT.jar started by runner in /usercode/FILESYSTEM/deepseektutor)
+2026-02-25T02:54:48.783Z  INFO 886 --- [deepseektutor] [           main] c.c.d.DeepSeekTutorApplication           : No active profile set, falling back to 1 default profile: "default"
+2026-02-25T02:54:50.117Z  INFO 886 --- [deepseektutor] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2026-02-25T02:54:50.131Z  INFO 886 --- [deepseektutor] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-25T02:54:50.131Z  INFO 886 --- [deepseektutor] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.40]
+2026-02-25T02:54:50.167Z  INFO 886 --- [deepseektutor] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-02-25T02:54:50.167Z  INFO 886 --- [deepseektutor] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1273 ms
+2026-02-25T02:54:51.090Z  INFO 886 --- [deepseektutor] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path '/'
+2026-02-25T02:54:51.102Z  INFO 886 --- [deepseektutor] [           main] c.c.d.DeepSeekTutorApplication           : Started DeepSeekTutorApplication in 2.878 seconds (process running for 3.377)
+2026-02-25T02:54:51.868Z  INFO 886 --- [deepseektutor] [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-25T02:54:51.869Z  INFO 886 --- [deepseektutor] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-25T02:54:51.870Z  INFO 886 --- [deepseektutor] [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+App is up!
+✅ Session creation endpoint works! sessionId: 981bb99d-acc3-4ad7-a89c-c7c5aeba4f6c
+✅ Ask endpoint works! Answer: "answer":"Of course! That's a fundamental and excellent question to start with.\n\n**2 + 2 = 4**\n\nThis is the foundational idea of **addition**: combining two or more numbers to find their total.\n\nLet's think about it with a simple, real-world example: Imagine you have **2 apples** in your lunchbox, and a friend gives you **2 more apples**. How many apples do you have now? You would count them: 1, 2, 3, 4. So, you have **4 apples** total.\n\nGreat job asking this question! Building confidence starts with getting the basics right.\n\nHow are you feeling about math? Is this a concept you're just reviewing, or are you starting to explore something new?
+🎉 Both endpoints are working as expected!
