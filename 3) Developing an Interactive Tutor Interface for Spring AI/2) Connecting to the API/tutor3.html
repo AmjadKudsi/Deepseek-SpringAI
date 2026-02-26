@@ -1,0 +1,116 @@
+# transform the sendQuery function from a simple echo mechanism into a real communication channel with your backend server
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Personal Tutor</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to Your Personal Tutor</h1>
+        <p>Ask any question and receive personalized guidance!</p>
+    </div>
+    <div id="chat-container">
+        <div id="messages"></div>
+        <div class="input-container">
+            <div class="input-wrapper">
+                <input type="text" id="message-input" placeholder="Type your question...">
+            </div>
+            <button onclick="sendQuery()">Send</button>
+            <button id="new-session-btn" onclick="startNewSession()">New Session</button>
+        </div>
+    </div>
+
+    <script>
+        const messagesContainer = document.getElementById('messages');
+        const messageInput = document.getElementById('message-input');
+        let currentStudentId = null;
+        let currentSessionId = null;
+
+        document.addEventListener('DOMContentLoaded', startNewSession);
+
+        function startNewSession() {
+            // Generate or reuse a demo studentId
+            if (!localStorage.getItem('studentId')) {
+                localStorage.setItem('studentId', 'student-' + Math.random().toString(36).substring(2, 12));
+            }
+            currentStudentId = localStorage.getItem('studentId');
+            fetch('/api/tutor/create', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({studentId: currentStudentId, promptName: 'default'})
+            })
+            .then(resp => {
+                if (!resp.ok) {
+                    throw new Error(`HTTP error! status: ${resp.status}`);
+                }
+                return resp.json();
+            })
+            .then(data => {
+                currentSessionId = data.sessionId;
+                messagesContainer.innerHTML = '';
+                appendMessage('assistant', 'New session started. How can I help you today?');
+            })
+            .catch(error => {
+                console.error('Error starting new session:', error);
+                appendMessage('assistant', 'Error: Could not start a new session. Please try again.');
+            });
+        }
+
+        function sendQuery() {
+            const query = messageInput.value.trim();
+            if (!query) return;
+            if (!currentSessionId) {
+                appendMessage('assistant', 'Please start a new session first.');
+                return;
+            }
+            appendMessage('user', query);
+            messageInput.value = '';
+
+            // TODO: Replace this setTimeout with a fetch request to the API
+            // - Use fetch to send a POST request to '/api/tutor/ask'
+            // - Add headers for JSON content type
+            // - Include a JSON body with studentId, sessionId, and question
+            // - Handle the response to display the assistant's message
+            // - Add error handling with a user-friendly message in the chat
+        fetch('/api/tutor/ask', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                studentId: currentStudentId,
+                sessionId: currentSessionId,
+                question: query
+            })
+        })
+        .then(resp => {
+            if (!resp.ok) {
+                throw new Error(`HTTP error! status: ${resp.status}`);
+            }
+            return resp.json();
+        })
+        .then(data => {
+            appendMessage('assistant', data.answer);
+        })
+        .catch(error => {
+            console.error('Error sending query:', error);
+            appendMessage('assistant', 'Error: Could not get an answer. Please check the console and try again.');
+        });
+
+        function appendMessage(role, content) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${role}`;
+            messageDiv.textContent = content;
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        messageInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendQuery();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+# implement session tracking in your application
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Personal Tutor</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="header">
+        <h1>Welcome to Your Personal Tutor</h1>
+        <p>Ask any question and receive personalized guidance!</p>
+    </div>
+    <div id="chat-container">
+        <div id="messages"></div>
+        <div class="input-container">
+            <div class="input-wrapper">
+                <input type="text" id="message-input" placeholder="Type your question...">
+            </div>
+            <button onclick="sendQuery()">Send</button>
+            <button id="new-session-btn" onclick="startNewSession()">New Session</button>
+        </div>
+    </div>
+
+    <script>
+        // Get references to the messages container and message input field
+        const messagesContainer = document.getElementById('messages');
+        const messageInput = document.getElementById('message-input');
+
+        // TODO: Initialize variables to store the current session and student IDs
+        // - Declare a variable named currentSessionId and set it to null
+        // - Declare a variable named currentStudentId and set it to null
+        let currentSessionId = null;
+        let currentStudentId = null;
+
+        // Start a session automatically when the page loads
+        document.addEventListener('DOMContentLoaded', startNewSession);
+
+        // TODO: Update this function to create a new session using fetch
+        // - Generate or reuse a studentId (store in localStorage if not present)
+        // - Make a POST request to the '/api/tutor/create' endpoint with a JSON body:
+        //   { studentId: ..., promptName: 'default' }
+        // - On success, store the returned sessionId in currentSessionId
+        // - Store the used/generated studentId in currentStudentId
+        // - Clear the messages container to start fresh
+        // - Add error handling: if the request fails, display an error message in the chat area
+        async function startNewSession() {
+            let studentId = localStorage.getItem('studentId');
+            if (!studentId) {
+                studentId = crypto.randomUUID();
+                localStorage.setItem('studentId', studentId);
+            }
+
+            try {
+                const response = await fetch('/api/tutor/create', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ studentId: studentId, promptName: 'default' })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                currentSessionId = data.sessionId;
+                currentStudentId = studentId;
+                messagesContainer.innerHTML = '';
+            } catch (error) {
+                console.error('Error creating session:', error);
+                appendMessage('assistant', 'Error: Could not start a new session. Please try again.');
+            }
+        }
+
+        function appendMessage(role, content) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${role}`;
+            messageDiv.textContent = content;
+            messagesContainer.appendChild(messageDiv);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function sendQuery() {
+            const query = messageInput.value.trim();
+            if (!query) return;
+            if (!currentSessionId) {
+                appendMessage('assistant', 'Please start a new session first.');
+                return;
+            }
+            appendMessage('user', query);
+            messageInput.value = '';
+            fetch('/api/tutor/ask', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({
+                    studentId: currentStudentId,
+                    sessionId: currentSessionId,
+                    question: query
+                })
+            })
+            .then(resp => {
+                if (!resp.ok) {
+                    throw new Error(`HTTP error! status: ${resp.status}`);
+                }
+                return resp.json();
+            })
+            .then(data => {
+                appendMessage('assistant', data.answer);
+            })
+            .catch(error => {
+                console.error('Error sending query:', error);
+                appendMessage('assistant', 'Error: Could not get an answer. Please check the console and try again.');
+            });
+        }
+
+        messageInput.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && !e.shiftKey) {
+                e.preventDefault();
+                sendQuery();
+            }
+        });
+    </script>
+</body>
+</html>
