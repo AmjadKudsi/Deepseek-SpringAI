@@ -1,0 +1,290 @@
+/* --- CSS Variables --- */
+:root {
+    --primary-bg-color: #f0f2f5;
+    --content-bg-color: #ffffff;
+    --text-color: #333333;
+    --primary-accent-color: #007bff;
+    --secondary-accent-color: #28a745;
+    --suggestion-accent-color: #ffc107;
+    --user-message-bg: #007bff;
+    --user-message-text: #ffffff;
+    --assistant-message-bg: #e9ecef;
+    --assistant-message-text: #333333;
+    --border-color: #dee2e6;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --border-radius: 6px;
+    --spacing-unit: 8px;
+}
+
+/* --- Basic Reset & Global Styles --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family), sans-serif;
+    background-color: var(--primary-bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure footer (input area) can be pushed down */
+}
+
+/* --- Header --- */
+.site-header {
+    text-align: center;
+    padding: calc(var(--spacing-unit) * 2.5) var(--spacing-unit); /* 20px 8px */
+    background-color: var(--content-bg-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.site-header h1 {
+    margin-bottom: calc(var(--spacing-unit) * 0.5);
+    color: var(--primary-accent-color);
+}
+
+/* --- Suggestion Navigation --- */
+.suggestion-nav {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-unit);
+    padding: calc(var(--spacing-unit) * 2) var(--spacing-unit); /* 16px 8px */
+    flex-wrap: wrap; /* Allow suggestions to wrap on smaller screens */
+}
+
+/* --- Chat Interface --- */
+#chat-interface {
+    max-width: 800px;
+    width: 95%;
+    margin: calc(var(--spacing-unit) * 2.5) auto; /* 20px auto */
+    background-color: var(--content-bg-color);
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 10px var(--shadow-color);
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allows main to take up available space */
+    overflow: hidden; /* Ensures children don't overflow rounded corners */
+    max-height: calc(100vh - 180px); /* Adjust based on header/nav height */
+}
+
+#messages {
+    flex-grow: 1;
+    padding: calc(var(--spacing-unit) * 2); /* 16px */
+    overflow-y: auto;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Message Styling */
+.message {
+    margin-bottom: var(--spacing-unit);
+    padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5); /* 8px 12px */
+    border-radius: var(--border-radius);
+    max-width: 80%;
+    word-wrap: break-word; /* ensure long words don't break layout */
+}
+
+.message.user {
+    background-color: var(--user-message-bg);
+    color: var(--user-message-text);
+    margin-left: auto; /* Align to the right */
+    text-align: left; /* Keep text left-aligned within the bubble */
+}
+
+.message.assistant {
+    background-color: var(--assistant-message-bg);
+    color: var(--assistant-message-text);
+    margin-right: auto; /* Align to the left */
+}
+
+/* --- Chat Form & Input Area --- */
+#chat-form {
+    padding: calc(var(--spacing-unit) * 1.5); /* 12px */
+    background-color: #f8f9fa; /* Slightly different background for input area */
+}
+
+.input-area {
+    display: flex;
+    gap: var(--spacing-unit);
+    margin-bottom: var(--spacing-unit);
+}
+
+#message-input {
+    flex-grow: 1;
+    padding: calc(var(--spacing-unit) * 1.25); /* 10px */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+}
+
+#message-input:focus {
+    outline: none;
+    border-color: var(--primary-accent-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+/* --- Controls Area --- */
+.controls-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: calc(var(--spacing-unit) * 2);
+    flex-wrap: wrap; /* Allow controls to wrap */
+}
+
+.reasoning-control,
+.session-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-unit);
+}
+
+.reasoning-control label,
+.session-controls label {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+#reasoning-toggle {
+    margin-right: calc(var(--spacing-unit) * 0.5);
+    accent-color: var(--primary-accent-color); /* Style checkbox color */
+}
+
+#prompt-select {
+    padding: calc(var(--spacing-unit) * 0.75); /* 6px */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    font-size: 0.9rem;
+}
+
+/* --- Buttons --- */
+button {
+    padding: calc(var(--spacing-unit) * 1.25) calc(var(--spacing-unit) * 2); /* 10px 16px */
+    color: #fff;
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+button:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(var(--shadow-rgb, 0,123,255), 0.35); /* Default shadow */
+}
+
+#send-btn {
+    background-color: var(--primary-accent-color);
+    --shadow-rgb: 0,123,255;
+}
+#send-btn:hover {
+    background-color: #0056b3; /* Darker blue */
+}
+
+#new-session-btn {
+    background-color: var(--secondary-accent-color);
+    --shadow-rgb: 40,167,69;
+}
+#new-session-btn:hover {
+    background-color: #1e7e34; /* Darker green */
+}
+
+.suggestion-btn {
+    background-color: var(--suggestion-accent-color);
+    color: #212529; /* Darker text for better contrast on yellow */
+    --shadow-rgb: 255,193,7;
+}
+.suggestion-btn:hover {
+    background-color: #e0a800; /* Darker yellow */
+}
+
+
+/* --- Utility --- */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Optional: Custom Scrollbar for WebKit browsers */
+#messages::-webkit-scrollbar {
+    width: 8px;
+}
+#messages::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: var(--border-radius);
+}
+#messages::-webkit-scrollbar-thumb {
+    background: #c5c5c5;
+    border-radius: var(--border-radius);
+}
+#messages::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    #chat-interface {
+        width: 100%;
+        margin: 0;
+        border-radius: 0;
+        max-height: none; /* Allow it to take full available height */
+        height: calc(100vh - 120px); /* Adjust based on header/nav actual height */
+    }
+
+    .site-header {
+        padding: calc(var(--spacing-unit) * 1.5);
+    }
+    .site-header h1 { font-size: 1.5rem; }
+    .site-header p { font-size: 0.9rem; }
+
+
+    .suggestion-nav {
+        padding: var(--spacing-unit);
+    }
+    .suggestion-btn {
+        padding: var(--spacing-unit) calc(var(--spacing-unit) * 1.5);
+        font-size: 0.85rem;
+    }
+
+    .controls-area {
+        flex-direction: column;
+        align-items: stretch; /* Make controls full width */
+        gap: var(--spacing-unit);
+    }
+    .reasoning-control,
+    .session-controls {
+        justify-content: space-between; /* Space out items within each control group */
+    }
+    #prompt-select,
+    #new-session-btn {
+        flex-grow: 1; /* Allow select and button to grow */
+    }
+    .session-controls label {
+        white-space: nowrap;
+    }
+}
+
+@media (max-width: 480px) {
+    .input-area {
+        /* Could stack send button below input if desired */
+    }
+    button {
+        font-size: 0.9rem;
+    }
+    #message-input {
+        font-size: 0.95rem;
+    }
+    .message {
+        max-width: 90%;
+    }
+}

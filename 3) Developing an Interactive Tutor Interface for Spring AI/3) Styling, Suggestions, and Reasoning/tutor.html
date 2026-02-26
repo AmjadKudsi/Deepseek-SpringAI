@@ -1,0 +1,160 @@
+# explore the finished application (with added modern styling to tutor interface)
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Personal Tutor</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header class="site-header">
+    <h1>Welcome to Your Personal Tutor</h1>
+    <p>Ask any question and receive personalized guidance!</p>
+</header>
+
+<nav class="suggestion-nav">
+    <button class="suggestion-btn" onclick="usePrompt('Explain the Pythagorean theorem')">Math Help</button>
+    <button class="suggestion-btn" onclick="usePrompt('Describe Newton\'s laws of motion')">Science Inquiry</button>
+    <button class="suggestion-btn" onclick="usePrompt('What is the significance of historical events in WWII?')">History Analysis</button>
+</nav>
+
+<main id="chat-interface">
+    <div id="messages"></div>
+    <form id="chat-form" onsubmit="sendQuery(); return false;">
+        <div class="input-area">
+            <label for="message-input" class="visually-hidden">Type your question</label>
+            <input type="text" id="message-input" placeholder="Type your question...">
+            <button type="submit" id="send-btn">Send</button>
+        </div>
+        <div class="controls-area">
+            <div class="reasoning-control">
+                <input type="checkbox" id="reasoning-toggle">
+                <label for="reasoning-toggle">Use Reasoning Model</label>
+            </div>
+            <div class="session-controls">
+                <label for="prompt-select">Tutor Mode:</label>
+                <select id="prompt-select">
+                    <option value="default">Default</option>
+                    <option value="explainer">Explainer</option>
+                    <option value="math_tutor">Math Tutor</option>
+                    <option value="quizmaster">Quizmaster</option>
+                </select>
+                <button type="button" id="new-session-btn" onclick="startNewSession()">New Session</button>
+            </div>
+        </div>
+    </form>
+</main>
+
+<script>
+    const messagesContainer = document.getElementById('messages');
+    const messageInput = document.getElementById('message-input');
+    const promptSelect = document.getElementById('prompt-select');
+    let currentStudentId = null;
+    let currentSessionId = null;
+
+    document.addEventListener('DOMContentLoaded', startNewSession);
+
+    function startNewSession() {
+        if (!localStorage.getItem('studentId')) {
+            localStorage.setItem('studentId', 'student-' + Math.random().toString(36).substring(2, 12));
+        }
+        currentStudentId = localStorage.getItem('studentId');
+        const selectedPrompt = promptSelect.value || "default";
+
+        fetch('/api/tutor/create', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({studentId: currentStudentId, promptName: selectedPrompt})
+        })
+            .then(resp => {
+                if (!resp.ok) {
+                    throw new Error(`HTTP error! status: ${resp.status}`);
+                }
+                return resp.json();
+            })
+            .then(data => {
+                currentSessionId = data.sessionId;
+                messagesContainer.innerHTML = '';
+                appendMessage('assistant', `New session started with ${selectedPrompt} prompt. How can I help you today?`);
+            })
+            .catch(error => {
+                console.error('Error starting new session:', error);
+                appendMessage('assistant', 'Error: Could not start a new session. Please try again.');
+            });
+    }
+
+    function sendQuery() {
+        const query = messageInput.value.trim();
+        if (!query) return;
+        if (!currentSessionId) {
+            appendMessage('assistant', 'Please start a new session first.');
+            return;
+        }
+        appendMessage('user', query);
+        messageInput.value = '';
+        messageInput.focus();
+
+        const reasoningChecked = document.getElementById('reasoning-toggle').checked;
+        const apiEndpoint = reasoningChecked ? '/api/tutor/ask/thinking' : '/api/tutor/ask';
+
+        fetch(apiEndpoint, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                studentId: currentStudentId,
+                sessionId: currentSessionId,
+                question: query
+            })
+        })
+            .then(resp => {
+                if (!resp.ok) {
+                    return resp.text().then(text => {
+                        let errorMsg = `HTTP error! status: ${resp.status}`;
+                        try {
+                            const errJson = JSON.parse(text);
+                            if (errJson && errJson.detail) {
+                                errorMsg += ` - ${errJson.detail}`;
+                            } else if (errJson && errJson.message) {
+                                errorMsg += ` - ${errJson.message}`;
+                            }
+                        } catch (e) {
+                            if(text) errorMsg += ` - ${text.substring(0, 100)}`;
+                        }
+                        throw new Error(errorMsg);
+                    });
+                }
+                return resp.json();
+            })
+            .then(data => {
+                appendMessage('assistant', data.answer);
+            })
+            .catch(error => {
+                console.error('Error sending query:', error);
+                appendMessage('assistant', `Error: ${error.message || 'Could not get an answer. Please check the console and try again.'}`);
+            });
+    }
+
+    function usePrompt(promptText) {
+        messageInput.value = promptText;
+        messageInput.focus();
+    }
+
+    function appendMessage(role, content) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${role}`;
+        messageDiv.textContent = content;
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    messageInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendQuery();
+        }
+    });
+</script>
+</body>
+</html>
