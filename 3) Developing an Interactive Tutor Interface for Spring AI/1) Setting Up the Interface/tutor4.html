@@ -1,0 +1,66 @@
+# implement an event listener for the message input field that will detect Enter key, prevent default behavior and call subquery()
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Your Personal Tutor</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div class="header">
+    <h1>Welcome to Your Personal Tutor</h1>
+    <p>Ask any question and receive personalized guidance!</p>
+</div>
+<div id="chat-container">
+    <div id="messages"></div>
+    <div class="input-container">
+        <div class="input-wrapper">
+            <input type="text" id="message-input" placeholder="Type your question...">
+        </div>
+        <button onclick="sendQuery()">Send</button>
+        <button id="new-session-btn" onclick="startNewSession()">New Session</button>
+    </div>
+</div>
+
+<script>
+    const messagesContainer = document.getElementById('messages');
+    const messageInput = document.getElementById('message-input');
+
+    document.addEventListener('DOMContentLoaded', startNewSession);
+
+    function startNewSession() {
+        messagesContainer.innerHTML = '';
+    }
+
+    function sendQuery() {
+        const query = messageInput.value.trim();
+        if (!query) return;
+        appendMessage('user', query);
+        messageInput.value = '';
+        setTimeout(() => {
+            appendMessage('assistant', `You asked: ${query}`);
+        }, 500);
+    }
+
+    function appendMessage(role, content) {
+        const messageDiv = document.createElement('div');
+        messageDiv.className = `message ${role}`;
+        messageDiv.textContent = content;
+        messagesContainer.appendChild(messageDiv);
+        messagesContainer.scrollTop = messagesContainer.scrollHeight;
+    }
+
+    // TODO: Add an event listener to the message input field that:
+    // 1. Listens for the 'keydown' event
+    // 2. Checks if the Enter key was pressed (and not Shift+Enter)
+    // 3. Prevents the default behavior
+    // 4. Calls the sendQuery() function
+    messageInput.addEventListener('keydown', function(e){
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendQuery();
+        }
+    });
+</script>
+</body>
+</html>
