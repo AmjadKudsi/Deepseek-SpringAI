@@ -1,4 +1,4 @@
 # Deepseek-SpringAI
-Querying DeepSeek and working with Spring AI, developing a robust Spring Boot app that delivers interactive, personalized learning experiences.
+Big Data with PySpark, combining the power of Python and Spark's distributed computing along with RDDs, DataFrames, SQL operations, and MLlib essentials. Demonstrating practical skills in data manipulation and machine learning, paving my path as a powerful data engineer.
 
 ![Certificate](./cert.png)
